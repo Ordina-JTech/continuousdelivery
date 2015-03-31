@@ -8,13 +8,8 @@ Continuous Delivery
 1. vagrant ssh
 
 ## Run jenkins
-1. build the docker image
- ```
- cd dockerfiles/jenkins
- docker build  -t ordina-cd/jenkins .
- ````
+1. Start a docker container by using the custom jenkins image
 
-2. Start a docker container by using the custom jenkins image
  ```
  docker run -p 8080:8080 --name jenkins ordina-cd/jenkins
  ```
