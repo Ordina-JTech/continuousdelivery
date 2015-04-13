@@ -1,0 +1,30 @@
+
+<div ng-controller="LoginController">
+    <!--        {{login.name}}
+    {{login.credentials.username}}-->
+
+    <!-- Sliding panel -->
+    <div>
+        <div class="slidingpanel-body">
+            <div class="panel-heading">
+                <button class="close top-right" ng-click="TODO">X</button>
+                <div class="panel-title">Login via uw Google- of Facebook account</div>
+            </div>
+            <div class="panel-body">
+                <p>
+                <ul type="none">
+                    <li class="" ng-repeat="oauthlogin in login.oauthlogins">
+                        <div class="row oauthlogin">
+                            <div>{{oauthlogin.name}}</div>
+                        </div>
+                    </li>
+                </ul>
+                <div id="google-signin-button" ng-hide="hideGoogleSigninButton">
+                    <div id="renderMe"></div>
+                </div>
+                <div id="oauth2-results" class="hide"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

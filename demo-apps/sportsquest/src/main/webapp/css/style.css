@@ -1,0 +1,8 @@
+#google-signin-button {
+    padding: 5px;
+}
+
+#oauth2-results pre { margin: 0; padding:0; width: 600px;}
+.hide { display: none;}
+.show { display: block;}
+
