@@ -10,16 +10,10 @@ Continuous Delivery
 1. Clone the repo
 1. change directory to vagrant
 1. vagrant up
-1. vagrant ssh
 
-## Run jenkins
-1. build the docker image
- ```
- cd dockerfiles/jenkins
- docker build  -t ordina-cd/jenkins .
- ```
-
-2. Start a docker container by using the custom jenkins image
- ```
- docker run -p 8080:8080 --name jenkins ordina-cd/jenkins
- ```
+## Run Jenkins
+Jenkins should start by itself since it has got a unit file configured within CoreOS. If it does not, execute the following command:
+```
+vagrant ssh
+docker run -p 8080:8080 --name jenkins ordina-cd/jenkins
+```
