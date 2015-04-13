@@ -1,6 +1,6 @@
 FROM jenkins:latest
 
-USER jenkins
+USER root
 
 # Jenkins main configuration
 COPY  config/config.xml /var/jenkins_home/config.xml
