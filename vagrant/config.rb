@@ -72,4 +72,6 @@ $docker_buildable_images = {
 }
 
 # Enable port forwarding from guest(s) to host machine, syntax is: { 80 => 8080 }, auto correction is enabled by default.
-#$forwarded_ports = {}
+$forwarded_ports = {
+	8080 => 8080 # Jenkins
+}

@@ -5,7 +5,7 @@ coreos:
   etcd:
     addr: $public_ipv4:4001
     peer-addr: $public_ipv4:7001
-    discovery: https://discovery.etcd.io/02ddc47e7800871f7b0afacb392e413a
+    discovery: https://discovery.etcd.io/4221cc85bf604c686246d77e6c7223f9
   fleet:
     public-ip: $public_ipv4
   flannel:
@@ -29,3 +29,16 @@ coreos:
 
       [Install]
       WantedBy=sockets.target
+  - name: jenkins.service
+    command: start
+    enable: true
+    content: |-
+      [Unit]
+      Description=Jenkins Service
+      After=docker.service
+      Requires=docker.service
+
+      [Service]
+      TimeoutStartSec=0
+      ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
+      ExecStop=/usr/bin/docker stop jenkins
