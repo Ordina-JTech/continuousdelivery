@@ -5,7 +5,7 @@ coreos:
   etcd:
     addr: $public_ipv4:4001
     peer-addr: $public_ipv4:7001
-    discovery: https://discovery.etcd.io/4221cc85bf604c686246d77e6c7223f9
+    discovery: https://discovery.etcd.io/3d5c5bda31d796cfd4c90cc4c277177a
   fleet:
     public-ip: $public_ipv4
   flannel:
@@ -40,5 +40,37 @@ coreos:
 
       [Service]
       TimeoutStartSec=0
-      ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
+      ExecStartPre=-/usr/bin/docker kill jenkins
+	  ExecStartPre=-/usr/bin/docker rm -f jenkins
+	  ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
       ExecStop=/usr/bin/docker stop jenkins
+  - name: rundeck.service
+    command: start
+    enable: true
+    content: |-
+      [Unit]
+      Description=Rundeck Service
+      After=docker.service
+      Requires=docker.service
+
+      [Service]
+      TimeoutStartSec=0
+      ExecStartPre=-/usr/bin/docker kill rundeck
+	  ExecStartPre=-/usr/bin/docker rm rundeck
+	  ExecStart=/usr/bin/docker run --rm --name rundeck -p 4440:4440 -e SERVER_URL=http://127.0.0.1:4440 jordan/rundeck:latest
+      ExecStop=/usr/bin/docker stop rundeck
+  - name: nexus.service
+    command: start
+    enable: true
+    content: |-
+      [Unit]
+      Description=Nexus Service
+      After=docker.service
+      Requires=docker.service
+
+      [Service]
+      TimeoutStartSec=0
+      ExecStartPre=-/usr/bin/docker kill nexus
+	  ExecStartPre=-/usr/bin/docker rm nexus
+	  ExecStart=/usr/bin/docker run --rm -p 8081:8081 --name nexus sonatype/nexus:oss
+      ExecStop=/usr/bin/docker stop nexus
