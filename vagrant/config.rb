@@ -67,14 +67,14 @@ $shared_folders = {'../dockerimages' => '/home/core/dockerimages'}
 
 # Docker images to build
 $docker_buildable_images = {
-	'ordina-cd/jenkins' 	=> '/home/core/dockerimages/jenkins/', 
-	'ordina-cd/tomcat' 	=> '/home/core/dockerimages/tomcat/'
+    'ordina-cd/jenkins'     => '/home/core/dockerimages/jenkins/', 
+    'ordina-cd/tomcat'     => '/home/core/dockerimages/tomcat/'
 }
 
 # Enable port forwarding from guest(s) to host machine, syntax is: { 80 => 8080 }, auto correction is enabled by default.
 $forwarded_ports = {
-	4440 => 4440, # Rundeck
-	8080 => 8080, # Jenkins
-	8081 => 8081  # Nexus
-	
+    4440 => 4440, # Rundeck
+    8080 => 8080, # Jenkins
+    8081 => 8081  # Nexus
+    
 }

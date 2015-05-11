@@ -41,8 +41,8 @@ coreos:
       [Service]
       TimeoutStartSec=0
       ExecStartPre=-/usr/bin/docker kill jenkins
-	  ExecStartPre=-/usr/bin/docker rm -f jenkins
-	  ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
+      ExecStartPre=-/usr/bin/docker rm -f jenkins
+      ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
       ExecStop=/usr/bin/docker stop jenkins
   - name: rundeck.service
     command: start
@@ -56,8 +56,8 @@ coreos:
       [Service]
       TimeoutStartSec=0
       ExecStartPre=-/usr/bin/docker kill rundeck
-	  ExecStartPre=-/usr/bin/docker rm rundeck
-	  ExecStart=/usr/bin/docker run --rm --name rundeck -p 4440:4440 -e SERVER_URL=http://127.0.0.1:4440 jordan/rundeck:latest
+      ExecStartPre=-/usr/bin/docker rm rundeck
+      ExecStart=/usr/bin/docker run --rm --name rundeck -p 4440:4440 -e SERVER_URL=http://127.0.0.1:4440 jordan/rundeck:latest
       ExecStop=/usr/bin/docker stop rundeck
   - name: nexus.service
     command: start
@@ -71,6 +71,6 @@ coreos:
       [Service]
       TimeoutStartSec=0
       ExecStartPre=-/usr/bin/docker kill nexus
-	  ExecStartPre=-/usr/bin/docker rm nexus
-	  ExecStart=/usr/bin/docker run --rm -p 8081:8081 --name nexus sonatype/nexus:oss
+      ExecStartPre=-/usr/bin/docker rm nexus
+      ExecStart=/usr/bin/docker run --rm -p 8081:8081 --name nexus sonatype/nexus:oss
       ExecStop=/usr/bin/docker stop nexus
