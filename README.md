@@ -1,24 +1,31 @@
-# continuousdelivery
-Continuous Delivery
+# Continuous Delivery
 
-## Varant prerequisites
+The aim of this project is to deliver a live demo environment for showing working examples of Continuous Delivery.
+It consist of an ecosystem of a CoreOS cluster and a set of Docker images that together provides the following servers:
+- Jenkins
+- Rundeck
+- Nexus
+- Tomcat
+
+## Getting Started
+
+### Varant prerequisites
 1. Virtualbox installed (>= 4.3.12)
 1. Vagrant installed (>= 1.7.2)
-
  
-## CoreOS Cluster (single node)
+### CoreOS Cluster (single node)
 1. Clone the repo
 1. change directory to vagrant
 1. vagrant up
 
-## Run Jenkins
+### Run Jenkins
 Jenkins should start by itself since it has got a unit file configured within CoreOS. If it does not, execute the following command:
 ```
 vagrant ssh
 docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
 ```
 
-### Upgrade after Dockerfile change
+#### Upgrade after Dockerfile change
 By using vagrant:
 ```
 vagrant reload
