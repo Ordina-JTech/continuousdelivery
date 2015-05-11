@@ -15,5 +15,17 @@ Continuous Delivery
 Jenkins should start by itself since it has got a unit file configured within CoreOS. If it does not, execute the following command:
 ```
 vagrant ssh
-fleetctl start /etc/systemd/system/jenkins.service
+docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
+```
+
+### Upgrade after Dockerfile change
+By using vagrant:
+```
+vagrant reload
+vagrant provision
+```
+Or directly inside the coreos machine
+```
+docker docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
+docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
 ```
