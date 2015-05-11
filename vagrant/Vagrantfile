@@ -18,7 +18,7 @@ $vm_gui = false
 $vm_memory = 2048
 $vm_cpus = 4
 $shared_folders = {}
-docker_buildable_images = {}
+$docker_buildable_images = {}
 $forwarded_ports = {}
 
 # Attempt to apply the deprecated environment variable NUM_INSTANCES to
