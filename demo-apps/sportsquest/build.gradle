@@ -4,13 +4,12 @@ apply plugin: 'eclipse-wtp'
 //apply plugin: 'spring-boot'
 apply plugin: 'war'
 
-//
 group = 'org.sportsquest'
 version = '1.0-SNAPSHOT'
 description = "sportsquest"
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 war {
 	baseName = 'sportsquest-web'
