@@ -31,7 +31,7 @@ vagrant provision
 ```
 Or directly inside the coreos machine
 ```
-docker docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
+docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
 docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
 ```
 
