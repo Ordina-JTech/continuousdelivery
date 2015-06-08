@@ -18,12 +18,10 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker images that t
 1. change directory to vagrant
 1. vagrant up
 
-### Run Jenkins
-Jenkins should start by itself since it has got a unit file configured within CoreOS. If it does not, execute the following command:
-```
-vagrant ssh
-docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
-```
+### Port numbers and default username's and password
+1. localhost:8080 Jenkins --> Username: none password: none
+1. localhost:8081 Nexus --> Username:admin password: admin123
+1. localhost:4440 Rundeck --> Username: admin password: admin
 
 #### Upgrade after Dockerfile change
 By using vagrant:
