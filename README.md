@@ -19,9 +19,9 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker images that t
 1. vagrant up
 
 ### Port numbers and default username's and password
-1. localhost:8080 Jenkins --> Username: none password: none
-1. localhost:8081 Nexus --> Username:admin password: admin123
-1. localhost:4440 Rundeck --> Username: admin password: admin
+1. localhost:8080 Jenkins -->  none / none
+1. localhost:8081 Nexus --> admin / admin123
+1. localhost:4440 Rundeck --> admin / admin
 
 #### Upgrade after Dockerfile change
 By using vagrant:
