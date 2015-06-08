@@ -16,3 +16,6 @@ RUN chown -R jenkins:jenkins /var/jenkins_home/jobs/
 # Jenkins plugins
 COPY  plugins.txt /tmp/plugins.txt
 RUN /usr/local/bin/plugins.sh /tmp/plugins.txt
+
+# Jenkins plugins configuration
+COPY config/org.jenkinsci.plugins.dockerbuildstep.DockerBuilder.xml /var/jenkins_home/

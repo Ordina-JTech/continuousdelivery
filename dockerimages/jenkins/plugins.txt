@@ -5,3 +5,5 @@ git:2.3.5
 git-client:1.16.1
 scm-api:0.2
 gradle:1.24
+docker-build-step:1.25
+rundeck:3.4
