@@ -8,8 +8,8 @@ group = 'org.sportsquest'
 version = '1.0-b1'
 description = "sportsquest"
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 war {
 	baseName = 'sportsquest-web'
