@@ -34,3 +34,7 @@ Or directly inside the coreos machine
 docker docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
 docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
 ```
+
+
+## Jenkins info
+Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The jenkins containers is started with a volume paramter that makes the docker socket available within the Jenkins container.
