@@ -1,11 +1,11 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
-//apply plugin: 'spring-boot'
 apply plugin: 'war'
+apply plugin: 'com.bmuschko.nexus'
 
 group = 'org.sportsquest'
-version = '1.0-SNAPSHOT'
+version = '1.0-b1'
 description = "sportsquest"
 
 sourceCompatibility = 1.8
@@ -23,6 +23,20 @@ repositories {
 	maven {url "http://m2.neo4j.org/content/repositories/releases"}
 	maven {url "http://repo.spring.io/libs-milestone" }
 	maven {url "http://m2.neo4j.org" }
+}
+
+buildscript {
+     repositories {
+         jcenter()
+     }
+     dependencies {
+         classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+     }
+ }
+
+nexus {
+    sign = false
+    repositoryUrl = 'http://localhost:8081/content/repositories/releases/'
 }
 
 dependencies {
