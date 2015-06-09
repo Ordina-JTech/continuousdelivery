@@ -9,7 +9,7 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker images that t
 
 ## Getting Started
 
-### Varant prerequisites
+### Vagrant prerequisites
 1. Virtualbox installed (>= 4.3.12)
 1. Vagrant installed (>= 1.7.2)
  
