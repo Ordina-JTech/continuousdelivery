@@ -5,7 +5,7 @@ coreos:
   etcd:
     addr: $public_ipv4:4001
     peer-addr: $public_ipv4:7001
-    discovery: https://discovery.etcd.io/ff1afaf32d36941cca1a634d06720828
+    discovery: https://discovery.etcd.io/73a3a3cc5bca1c24c31248d14d9654b7
   fleet:
     public-ip: $public_ipv4
   flannel:
@@ -57,8 +57,8 @@ coreos:
       TimeoutStartSec=0
       ExecStartPre=-/usr/bin/docker kill rundeck
       ExecStartPre=-/usr/bin/docker rm rundeck
-	  ExecStart=/usr/bin/docker run --rm --name rundeck -p 4440:4440 -e SERVER_URL=http://127.0.0.1:4440 --link nexus:nexus jordan/rundeck:latest
-	  ExecStop=/usr/bin/docker stop rundeck
+      ExecStart=/usr/bin/docker run --rm --name rundeck -p 4440:4440 -e SERVER_URL=http://127.0.0.1:4440 --link nexus:nexus jordan/rundeck:latest
+      ExecStop=/usr/bin/docker stop rundeck
   - name: nexus.service
     command: start
     enable: true
