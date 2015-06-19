@@ -7,7 +7,7 @@ COPY  config/config.xml /var/jenkins_home/config.xml
 RUN chown jenkins:jenkins /var/jenkins_home/config.xml
 RUN chmod 644 /var/jenkins_home/config.xml
 
-# SportQuest job
+# SportQuest jobs
 COPY config/jobs/ /var/jenkins_home/jobs/
 
 # Fix Permissions
