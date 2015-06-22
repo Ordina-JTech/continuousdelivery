@@ -1,6 +1,6 @@
 # Continuous Delivery
 
-The aim of this project is to deliver a live demo environment for showing working examples of Continuous Delivery.  
+The aim of this project is to deliver a live demo environment for showing working examples of Continuous Delivery.
 It consist of an ecosystem of a CoreOS cluster and a set of Docker images that together provides the following servers:
 
 - Jenkins
@@ -14,15 +14,15 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker images that t
 1. Virtualbox installed (>= 4.3.12)
 1. Vagrant installed (>= 1.7.2)
  
-### CoreOS Cluster (single node)
+### Start the CoreOS Cluster (single node)
 1. Clone the Git repo
 1. change directory to vagrant
 1. vagrant up
 
 ### Port numbers and default username's and password
-1. localhost:8080 Jenkins -->  none / none
-1. localhost:8081 Nexus --> admin / admin123
-1. localhost:4440 Rundeck --> admin / admin
+- <http://localhost:8080> Jenkins -->  none / none
+- <http://localhost:8081> Nexus --> admin / admin123
+- <http://localhost:4440> Rundeck --> admin / admin
 
 #### Upgrade after Dockerfile change
 By using Vagrant:
