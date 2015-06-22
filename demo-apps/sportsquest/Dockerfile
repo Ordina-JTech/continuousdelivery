@@ -4,6 +4,6 @@ MAINTAINER Sebastiaan Renkens sebastiaan.renkens@ordina.nl
 # Upstream tomcat is expected to EXPOSE port 8080
 
 # Embed the war of the build inside the container
-ADD /build/libs/*.war /usr/local/tomcat/webapps/
+ADD build/libs/*.war /usr/local/tomcat/webapps/
 
 CMD ["catalina.sh", "run"]
