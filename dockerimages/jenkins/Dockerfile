@@ -1,4 +1,5 @@
 FROM jenkins:latest
+MAINTAINER Sebastiaan Renkens sebastiaan.renkens@ordina.nl
 
 USER root
 
