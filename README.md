@@ -23,7 +23,7 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker containers th
 - <http://localhost:8080> Jenkins -->  none / none
 - <http://localhost:8081> Nexus --> admin / admin123
 - <http://localhost:4440> Rundeck --> admin / admin
-- <http://localhost:8888/sportsquest-web-0.1.0> --> SportsQuest demo app on Tomcat
+- <http://localhost:8888/sportsquest-web-1.0.b1> --> SportsQuest demo app on Tomcat
 
 ### Login into the running CoreOS machine
 	vagrant ssh
