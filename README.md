@@ -1,7 +1,7 @@
 # Continuous Delivery
 
 The aim of this project is to deliver a live demo environment for showing working examples of Continuous Delivery.
-It consist of an ecosystem of a CoreOS cluster and a set of Docker images that together provides the following servers:
+It consist of an ecosystem of a CoreOS cluster and a set of Docker containers that together provides the following servers:
 
 - Jenkins
 - Rundeck
@@ -23,8 +23,15 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker images that t
 - <http://localhost:8080> Jenkins -->  none / none
 - <http://localhost:8081> Nexus --> admin / admin123
 - <http://localhost:4440> Rundeck --> admin / admin
+- <http://localhost:8888/sportsquest-web-0.1.0> --> SportsQuest demo app on Tomcat
 
-#### Upgrade after Dockerfile change
+### Login into the running CoreOS machine
+	vagrant ssh
+Now you can execute Docker commands. Like show all running containers:
+	
+	docker ps
+
+#### Update after Dockerfile change
 By using Vagrant:
 
 	vagrant reload
@@ -32,6 +39,7 @@ By using Vagrant:
 
 Or directly inside the CoreOS machine:
 
+	vagrant ssh
 	docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
 	docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
 
