@@ -4,21 +4,9 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
-    <configVersion>2</configVersion>
-    <userRemoteConfigs>
-      <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/J-Technologies/continuousdelivery.git</url>
-      </hudson.plugins.git.UserRemoteConfig>
-    </userRemoteConfigs>
-    <branches>
-      <hudson.plugins.git.BranchSpec>
-        <name>*/master</name>
-      </hudson.plugins.git.BranchSpec>
-    </branches>
-    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-    <submoduleCfg class="list"/>
-    <extensions/>
+  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
+    <parentJobName>SportsQuest-init</parentJobName>
+    <criteria>Successful</criteria>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -41,12 +29,18 @@
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers>
+    <hudson.plugins.cloneworkspace.CloneWorkspacePublisher plugin="clone-workspace-scm@0.6">
+      <workspaceGlob></workspaceGlob>
+      <criteria>Any</criteria>
+      <archiveMethod>TAR</archiveMethod>
+      <overrideDefaultExcludes>false</overrideDefaultExcludes>
+    </hudson.plugins.cloneworkspace.CloneWorkspacePublisher>
     <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.17">
       <configs>
         <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
           <configs>
             <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-              <properties>PIPELINE_ID=$BUILD_NUMBER</properties>
+              <properties>PIPELINE_ID=$PIPELINE_ID</properties>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
           <projects>SportsQuest-Docker image, deploy2Nexus, </projects>
