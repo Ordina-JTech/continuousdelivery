@@ -63,12 +63,11 @@ $share_home=false
 # $shared_folders = {'/path/on/host' => '/path/on/guest', '/home/foo/app' => '/app'}
 # or, to map host folders to guest folders of the same name,
 # $shared_folders = Hash[*['/home/foo/app1', '/home/foo/app2'].map{|d| [d, d]}.flatten]
-$shared_folders = {'../dockerimages' => '/home/core/dockerimages'}
+$shared_folders = {'../docker' => '/home/core/docker'}
 
 # Docker images to build
 $docker_buildable_images = {
-    'ordina-cd/jenkins'     => '/home/core/dockerimages/jenkins/', 
-    'ordina-cd/tomcat'     => '/home/core/dockerimages/tomcat/'
+    'ordina-cd/jenkins'     => '/home/core/docker/images/jenkins/'
 }
 
 # Enable port forwarding from guest(s) to host machine, syntax is: { 80 => 8080 }, auto correction is enabled by default.
