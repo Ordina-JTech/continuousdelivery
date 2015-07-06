@@ -43,7 +43,7 @@
               <properties>PIPELINE_ID=$PIPELINE_ID</properties>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
-          <projects>SportsQuest-Docker image, deploy2Nexus, </projects>
+          <projects>SportsQuest-Docker image, SportsQuest-SonarQube, deploy2Nexus, </projects>
           <condition>SUCCESS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
         </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
