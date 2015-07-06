@@ -75,5 +75,6 @@ $forwarded_ports = {
     4440 => 4440, # Rundeck
     8080 => 8080, # Jenkins
     8081 => 8081, # Nexus
-    8888 => 8888  # SportsQuest
+    8888 => 8888, # SportsQuest
+	9000 => 9000  # SonarQube
 }
