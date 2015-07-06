@@ -35,8 +35,8 @@ coreos:
     content: |-
       [Unit]
       Description=Jenkins Service
-      After=docker.service nexus.service rundeck.service
-      Requires=docker.service nexus.service rundeck.service
+      After=docker.service nexus.service rundeck.service sonarqube.service
+      Requires=docker.service nexus.service rundeck.service sonarqube.service
 
       [Service]
       TimeoutStartSec=0
@@ -44,7 +44,7 @@ coreos:
       Restart=on-failure
       ExecStartPre=-/usr/bin/docker kill jenkins
       ExecStartPre=-/usr/bin/docker rm -f jenkins
-      ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --link rundeck:rundeck --link nexus:nexus -v /home/core/volumes/jenkins/root/.gradle:/root/.gradle -v /home/core/docker/volumes/jenkins/var/jenkins_home:/var/jenkins_home -v /home/core/docker/volumes/jenkins/usr/share/jenkins/ref/plugins:/usr/share/jenkins/ref/plugins -v /var/run/docker.sock:/var/run/docker.sock ordina-cd/jenkins
+      ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --link sonarqube:sonarqube --link rundeck:rundeck --link nexus:nexus -v /home/core/volumes/jenkins/root/.gradle:/root/.gradle -v /home/core/docker/volumes/jenkins/var/jenkins_home:/var/jenkins_home -v /home/core/docker/volumes/jenkins/usr/share/jenkins/ref/plugins:/usr/share/jenkins/ref/plugins -v /var/run/docker.sock:/var/run/docker.sock ordina-cd/jenkins
       ExecStop=/usr/bin/docker stop jenkins
   - name: rundeck.service
     command: start
@@ -80,3 +80,20 @@ coreos:
       ExecStartPre=-/usr/bin/docker rm nexus
       ExecStart=/usr/bin/docker run --rm -p 8081:8081 --name nexus sonatype/nexus:oss
       ExecStop=/usr/bin/docker stop nexus
+  - name: sonarqube.service
+    command: start
+    enable: true
+    content: |-
+      [Unit]
+      Description=SonarQube Service
+      After=docker.service
+      Requires=docker.service
+
+      [Service]
+      TimeoutStartSec=0
+      RestartSec=5
+      Restart=on-failure
+      ExecStartPre=-/usr/bin/docker kill sonarqube
+      ExecStartPre=-/usr/bin/docker rm sonarqube
+      ExecStart=/usr/bin/docker run --rm --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:latest
+      ExecStop=/usr/bin/docker stop sonarqube
