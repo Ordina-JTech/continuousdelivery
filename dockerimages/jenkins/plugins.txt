@@ -1,9 +1,0 @@
-jquery:1.7.2-1
-parameterized-trigger:2.17
-build-pipeline-plugin:1.4.7
-git:2.3.5
-git-client:1.16.1
-scm-api:0.2
-gradle:1.24
-docker-build-step:1.25
-rundeck:3.4
