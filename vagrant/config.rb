@@ -65,6 +65,15 @@ $share_home=false
 # $shared_folders = Hash[*['/home/foo/app1', '/home/foo/app2'].map{|d| [d, d]}.flatten]
 $shared_folders = {'../docker' => '/home/core/docker'}
 
+# Docker images to pull (Makes pulling occur during provisioning rather then first service start (which is invisible for the user).
+$docker_pull_images = [
+    'jenkins:latest', 
+    'jordan/rundeck:latest', 
+    'sonatype/nexus:oss',
+    'tomcat:jre8', 
+    'sonarqube:latest'
+]
+
 # Docker images to build
 $docker_buildable_images = {
     'ordina-cd/jenkins'     => '/home/core/docker/images/jenkins/'
