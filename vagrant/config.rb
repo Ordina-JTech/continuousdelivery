@@ -67,7 +67,6 @@ $shared_folders = {'../docker' => '/home/core/docker'}
 
 # Docker images to pull (Makes pulling occur during provisioning rather then first service start (which is invisible for the user).
 $docker_pull_images = [
-    'jenkins:latest', 
     'jordan/rundeck:latest', 
     'sonatype/nexus:oss',
     'tomcat:jre8', 
@@ -85,5 +84,6 @@ $forwarded_ports = {
     8080 => 8080, # Jenkins
     8081 => 8081, # Nexus
     8888 => 8888, # SportsQuest
-	9000 => 9000  # SonarQube
+	9000 => 9000, # SonarQube
+    9092 => 9092  # SonarQube
 }
