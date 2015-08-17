@@ -7,7 +7,7 @@ angular.module('sportsQuest').controller('CarouselDemoCtrl',
         $scope.addSlide = function() {
 	        var newWidth = 1 + slides.length;
 	        slides.push({
-	            image: 'http://lorempixel.com/1600/500/sports/' + newWidth,
+	            image: 'img/sports' + newWidth + '.jpg',
 	            text: ['Slide0','Slide1','Slide2','Slide3'][slides.length % 4] + ' ' +
 	            ['Sports', 'Sports', 'Sports', 'Sports'][slides.length % 4]
 	        });
