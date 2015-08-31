@@ -32,7 +32,7 @@
               <properties>PIPELINE_ID=$PIPELINE_ID</properties>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
-          <projects>SportsQuest-Docker create container, </projects>
+          <projects>SportsQuest-Docker create and start container </projects>
           <condition>SUCCESS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
         </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
