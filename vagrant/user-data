@@ -62,6 +62,8 @@ coreos:
       Restart=on-failure
       ExecStartPre=-/usr/bin/docker kill nexus
       ExecStartPre=-/usr/bin/docker rm nexus
+      # Wait a couple of seconds for the vagrant rsync to finish
+      ExecStartPre=/bin/sleep 6
       ExecStartPre=/bin/chown -R 200 /home/core/docker/volumes/nexus/sonatype-work
       ExecStartPre=-rm -f /home/core/docker/volumes/nexus/sonatype-work/conf/logback.xml
       ExecStart=/usr/bin/docker run --rm -p 8081:8081 -v /home/core/docker/volumes/nexus/sonatype-work:/sonatype-work --name nexus sonatype/nexus:2.11.3-01
