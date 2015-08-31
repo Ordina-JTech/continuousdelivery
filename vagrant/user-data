@@ -5,7 +5,7 @@ coreos:
   etcd:
     addr: $public_ipv4:4001
     peer-addr: $public_ipv4:7001
-    discovery: https://discovery.etcd.io/5a70274330958a84b7fb2fbcbe56e1d8
+    discovery: https://discovery.etcd.io/6ee817384454206011516c281c4b83c2
   fleet:
     public-ip: $public_ipv4
   flannel:
