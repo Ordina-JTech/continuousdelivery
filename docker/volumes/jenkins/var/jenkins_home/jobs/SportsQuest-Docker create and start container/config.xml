@@ -32,7 +32,7 @@
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StartCommand">
         <containerIds>sportsquest-$PIPELINE_ID</containerIds>
         <publishAllPorts>false</publishAllPorts>
-        <portBindings></portBindings>
+        <portBindings>8888:8080</portBindings>
         <waitPorts></waitPorts>
         <links></links>
         <bindMounts></bindMounts>
