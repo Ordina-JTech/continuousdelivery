@@ -4,7 +4,6 @@ The aim of this project is to deliver a live demo environment for showing workin
 It consist of an ecosystem of a CoreOS cluster and a set of Docker containers that together provides the following servers:
 
 - Jenkins
-- Rundeck
 - Nexus
 - Tomcat
 
@@ -13,7 +12,8 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker containers th
 ### Prerequisites
 1. Virtualbox installed, version >= 4.3.12
 1. Vagrant installed, version >= 1.7.2
- 
+1. (Windows Only) Cygwin with rsync binary (selectable in the setup)
+
 ### Start the CoreOS Cluster (single node)
 1. Clone the Git repo
 1. change directory to vagrant
@@ -24,7 +24,6 @@ After Vagrant has finished, Jenkins needs some time to startup...
 ### Port numbers and default username's and password
 - <http://localhost:8080> Jenkins -->  none / none
 - <http://localhost:8081> Nexus --> admin / admin123
-- <http://localhost:4440> Rundeck --> admin / admin
 - <http://localhost:8888/sportsquest-web-1.0-b1> --> SportsQuest demo app on Tomcat
 
 ### Login into the running CoreOS machine
