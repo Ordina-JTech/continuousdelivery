@@ -19,7 +19,7 @@
       <description></description>
       <switches></switches>
       <tasks>sonarRunner</tasks>
-      <rootBuildScriptDir>${workspace}/demo-apps/sportsquest</rootBuildScriptDir>
+      <rootBuildScriptDir>${workspace}</rootBuildScriptDir>
       <buildFile></buildFile>
       <gradleName>(Default)</gradleName>
       <useWrapper>true</useWrapper>

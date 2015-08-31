@@ -8,7 +8,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/J-Technologies/continuousdelivery.git</url>
+        <url>https://github.com/J-Technologies/continuousdelivery-sportsquest-demo.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -31,7 +31,7 @@
       <description></description>
       <switches></switches>
       <tasks>uploadArchives</tasks>
-      <rootBuildScriptDir>${workspace}/demo-apps/sportsquest</rootBuildScriptDir>
+      <rootBuildScriptDir>${workspace}</rootBuildScriptDir>
       <buildFile></buildFile>
       <gradleName>(Default)</gradleName>
       <useWrapper>true</useWrapper>

@@ -17,7 +17,7 @@
   <builders>
     <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.25">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateImageCommand">
-        <dockerFolder>$WORKSPACE/demo-apps/sportsquest</dockerFolder>
+        <dockerFolder>$WORKSPACE</dockerFolder>
         <imageTag>ordina-cd/sportsquest:$PIPELINE_ID</imageTag>
         <noCache>false</noCache>
       </dockerCmd>
