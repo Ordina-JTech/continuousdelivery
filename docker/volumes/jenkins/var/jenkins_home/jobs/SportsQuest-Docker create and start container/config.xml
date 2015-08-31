@@ -42,20 +42,14 @@
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
   </builders>
   <publishers>
-    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.17">
+    <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.4.7">
       <configs>
-        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
-          <configs>
-            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-              <properties>PIPELINE_ID=$PIPELINE_ID</properties>
-            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-          </configs>
-          <projects>SportsQuest-Docker stop container</projects>
-          <condition>SUCCESS</condition>
-          <triggerWithNoParameters>false</triggerWithNoParameters>
-        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+        <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.17">
+          <properties>PIPELINE_ID=$PIPELINE_ID</properties>
+        </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
       </configs>
-    </hudson.plugins.parameterizedtrigger.BuildTrigger>
+      <downstreamProjectNames>SportsQuest-Docker stop container</downstreamProjectNames>
+    </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
   </publishers>
   <buildWrappers/>
 </project>
