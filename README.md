@@ -10,8 +10,8 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker containers th
 ## Getting Started
 
 ### Prerequisites
-1. Virtualbox installed, version >= 4.3.12
-1. Vagrant installed, version >= 1.7.2
+1. Virtualbox installed, version >= 4.3.12 < 5.0
+1. Vagrant installed, version == 1.7.2
 1. (Windows Only) Cygwin with rsync binary (selectable in the setup)
 
 ### Start the CoreOS Cluster (single node)
