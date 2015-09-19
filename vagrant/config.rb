@@ -67,8 +67,8 @@ $shared_folders = {'../docker' => '/home/core/docker'}
 
 # Docker images to pull (Makes pulling occur during provisioning rather then first service start (which is invisible for the user).
 $docker_pull_images = [
-    'sonatype/nexus:2.11.3-01',
-    'tomcat:jre8', 
+    'sonatype/nexus:2.11.2-06',
+    'tomcat:jre8',
     'sonarqube:5.1.1'
 ]
 
