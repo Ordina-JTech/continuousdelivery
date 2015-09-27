@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
+    <parentJobName>SportsQuest-CI</parentJobName>
+    <criteria>Any</criteria>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>chmod 777 $WORKSPACE/src/main/test/e2e/</command>
+    </hudson.tasks.Shell>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
+        <image>caltha/protractor</image>
+        <command></command>
+        <hostName></hostName>
+        <containerName>protractor-$PIPELINE_ID</containerName>
+        <envVars></envVars>
+        <links></links>
+        <exposedPorts></exposedPorts>
+        <cpuShares></cpuShares>
+        <memoryLimit></memoryLimit>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StartCommand">
+        <containerIds>protractor-$PIPELINE_ID</containerIds>
+        <publishAllPorts>false</publishAllPorts>
+        <portBindings></portBindings>
+        <waitPorts></waitPorts>
+        <links>sportsquest-$PIPELINE_ID:sportsquest</links>
+        <bindMounts>/home/core/docker/volumes/jenkins/$WORKSPACE/src/main/test/e2e/:/project</bindMounts>
+        <privileged>false</privileged>
+        <containerIdsLogging></containerIdsLogging>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

@@ -69,7 +69,8 @@ $shared_folders = {'../docker' => '/home/core/docker'}
 $docker_pull_images = [
     'sonatype/nexus:2.11.2-06',
     'tomcat:jre8',
-    'sonarqube:5.1.1'
+    'sonarqube:5.1.1',
+    'caltha/protractor:latest'
 ]
 
 # Docker images to build
@@ -84,5 +85,6 @@ $forwarded_ports = {
     8081 => 8081, # Nexus
     8888 => 8888, # SportsQuest
 	9000 => 9000, # SonarQube
-    9092 => 9092  # SonarQube
+    9092 => 9092, # SonarQube
+    4444 => 4444  # Protractor Webdriver
 }
