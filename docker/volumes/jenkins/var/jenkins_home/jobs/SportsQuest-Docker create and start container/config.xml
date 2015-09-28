@@ -4,10 +4,7 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
-    <parentJobName>SportsQuest-init</parentJobName>
-    <criteria>Any</criteria>
-  </scm>
+  <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>true</blockBuildWhenDownstreamBuilding>
@@ -15,7 +12,14 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.25">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveCommand">
+        <containerIds>sportsquest-$PIPELINE_ID</containerIds>
+        <ignoreIfNotFound>true</ignoreIfNotFound>
+        <removeVolumes>false</removeVolumes>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.25">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
         <image>ordina-cd/sportsquest:$PIPELINE_ID</image>
         <command></command>
@@ -28,7 +32,7 @@
         <memoryLimit></memoryLimit>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.25">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StartCommand">
         <containerIds>sportsquest-$PIPELINE_ID</containerIds>
         <publishAllPorts>false</publishAllPorts>

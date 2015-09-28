@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Set&apos;s the &apos;production&apos; tag on the image belonging to this pipeline. Stop&apos;s the docker production container and restart </description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StopByImageIdCommand">
+        <imageId>ordina-cd/sportsquest:production</imageId>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveCommand">
+        <containerIds>sportsquest-production</containerIds>
+        <ignoreIfNotFound>true</ignoreIfNotFound>
+        <removeVolumes>false</removeVolumes>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveImageCommand">
+        <imageName>ordina-cd/sportsquest:production</imageName>
+        <imageId></imageId>
+        <ignoreIfNotFound>false</ignoreIfNotFound>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.TagImageCommand">
+        <image>ordina-cd/sportsquest:$PIPELINE_ID</image>
+        <repository>ordina-cd/sportsquest</repository>
+        <tag>production</tag>
+        <ignoreIfNotFound>true</ignoreIfNotFound>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <hudson.tasks.Shell>
+      <command># Docker plugin for Jenkins has no option to set a TAG, therefore doing this via curl by calling the Docker API directly
+# DAMN, the current version of CURL does not support the --unix-socket parameter
+#curl -X POST --unix-socket  /var/run/docker.sock http:/images/ordina-cd/sportsquest:$PIPELINE_ID/tag?repo=ordina-cd/sportsquest\&amp;tag=production\&amp;force=1
+# Falling back to TCP, using 10.1.42.1 as a host. This is the Docker0 interface on the CoreOS machine.
+#curl -X POST http://10.1.42.1:2375/images/ordina-cd/sportsquest:$PIPELINE_ID/tag?repo=ordina-cd/sportsquest&amp;tag=production&amp;force=1</command>
+    </hudson.tasks.Shell>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
+        <image>ordina-cd/sportsquest:production</image>
+        <command></command>
+        <hostName></hostName>
+        <containerName>sportsquest-production</containerName>
+        <envVars></envVars>
+        <links></links>
+        <exposedPorts></exposedPorts>
+        <cpuShares></cpuShares>
+        <memoryLimit></memoryLimit>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StartCommand">
+        <containerIds>sportsquest-production</containerIds>
+        <publishAllPorts>false</publishAllPorts>
+        <portBindings>9999:8080</portBindings>
+        <waitPorts></waitPorts>
+        <links></links>
+        <bindMounts></bindMounts>
+        <privileged>false</privileged>
+        <containerIdsLogging></containerIdsLogging>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
