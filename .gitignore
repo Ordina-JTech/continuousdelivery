@@ -18,12 +18,3 @@ Ingore all vagrant instances
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# Ignore Jenkins material
-docker/volumes/jenkins/var/jenkins_home/war/
-docker/volumes/jenkins/var/jenkins_home/workspace/
-docker/volumes/jenkins/var/jenkins_home/updates/
-docker/volumes/jenkins/var/jenkins_home/plugins/
-docker/volumes/jenkins/var/jenkins_home/secret**
-docker/volumes/jenkins/var/jenkins_home/jobs/**/last*
-docker/volumes/jenkins/var/jenkins_home/jobs/**/builds*
-docker/volumes/jenkins/var/jenkins_home/jobs/**/next*
