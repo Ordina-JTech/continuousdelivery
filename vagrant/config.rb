@@ -67,16 +67,17 @@ $shared_folders = {'../docker' => '/home/core/docker'}
 
 # Docker images to pull (Makes pulling occur during provisioning rather then first service start (which is invisible for the user).
 $docker_pull_images = [
-    'sonatype/nexus:2.11.2-06',
+    'sonatype/nexus:2.11.3-01',
     'tomcat:jre8',
     'sonarqube:5.1.1',
-    'caltha/protractor:latest'
+    'caltha/protractor:latest',
+    'jtechnologies/continuousdelivery-jenkins:latest'
 ]
 
 # Docker images to build
-$docker_buildable_images = {
-    'ordina-cd/jenkins'     => '/home/core/docker/images/jenkins/'
-}
+#$docker_buildable_images = {
+#    'ordina-cd/jenkins'     => '/home/core/docker/images/jenkins/'
+#}
 
 # Enable port forwarding from guest(s) to host machine, syntax is: { 80 => 8080 }, auto correction is enabled by default.
 $forwarded_ports = {

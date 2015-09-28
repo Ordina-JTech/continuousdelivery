@@ -5,7 +5,7 @@ coreos:
   etcd:
     addr: $public_ipv4:4001
     peer-addr: $public_ipv4:7001
-    discovery: https://discovery.etcd.io/960d7e056635685002c465338e0a904a
+    discovery: https://discovery.etcd.io/59f8b3d0f2e029cac90442e5a8742a13
   fleet:
     public-ip: $public_ipv4
   flannel:
@@ -44,8 +44,7 @@ coreos:
       Restart=on-failure
       ExecStartPre=-/usr/bin/docker kill jenkins
       ExecStartPre=-/usr/bin/docker rm -f jenkins
-      #ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --link sonarqube:sonarqube --link nexus:nexus -v /home/core/docker/volumes/jenkins/root/.gradle:/root/.gradle -v /home/core/docker/volumes/jenkins/var/jenkins_home:/var/jenkins_home -v /home/core/docker/volumes/jenkins/usr/share/jenkins/ref/plugins:/usr/share/jenkins/ref/plugins -v /var/run/docker.sock:/var/run/docker.sock ordina-cd/jenkins
-      ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --link sonarqube:sonarqube --link nexus:nexus -v /home/core/docker/volumes/jenkins/root/.gradle:/root/.gradle -v /home/core/docker/volumes/jenkins/var/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock ordina-cd/jenkins
+      ExecStart=/usr/bin/docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --link sonarqube:sonarqube --link nexus:nexus -v /home/core/docker/volumes/jenkins/root/.gradle:/root/.gradle -v /home/core/docker/volumes/jenkins/var/jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jtechnologies/continuousdelivery-jenkins:latest
       ExecStop=/usr/bin/docker stop jenkins
   - name: nexus.service
     command: start
