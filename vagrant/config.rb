@@ -81,10 +81,11 @@ $docker_buildable_images = {
 # Enable port forwarding from guest(s) to host machine, syntax is: { 80 => 8080 }, auto correction is enabled by default.
 $forwarded_ports = {
     4440 => 4440, # Rundeck
+    4444 => 4444, # Protractor Webdriver
     8080 => 8080, # Jenkins
     8081 => 8081, # Nexus
-    8888 => 8888, # SportsQuest
+    8888 => 8888, # SportsQuest DEV/TEST
     9000 => 9000, # SonarQube
     9092 => 9092, # SonarQube
-    4444 => 4444  # Protractor Webdriver
+    9999 => 9999  # SportsQuest PROD
 }

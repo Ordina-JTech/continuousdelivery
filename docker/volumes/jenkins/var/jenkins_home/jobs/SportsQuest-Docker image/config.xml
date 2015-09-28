@@ -15,11 +15,12 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.25">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateImageCommand">
         <dockerFolder>$WORKSPACE</dockerFolder>
         <imageTag>ordina-cd/sportsquest:$PIPELINE_ID</imageTag>
         <noCache>false</noCache>
+        <rm>false</rm>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
   </builders>
