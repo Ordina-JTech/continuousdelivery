@@ -84,7 +84,7 @@ $forwarded_ports = {
     8080 => 8080, # Jenkins
     8081 => 8081, # Nexus
     8888 => 8888, # SportsQuest
-	9000 => 9000, # SonarQube
+    9000 => 9000, # SonarQube
     9092 => 9092, # SonarQube
     4444 => 4444  # Protractor Webdriver
 }

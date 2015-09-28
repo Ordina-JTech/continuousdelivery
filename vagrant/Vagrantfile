@@ -101,12 +101,12 @@ Vagrant.configure("2") do |config|
 
       # Uncomment below to enable NFS for sharing the host machine into the coreos-vagrant VM.
       config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
-	  
-	  # Shared folders
+      
+      # Shared folders
       $shared_folders.each_with_index do |(host_folder, guest_folder), index|
         #config.vm.synced_folder host_folder.to_s, guest_folder.to_s, id: "core-share%02d" % index, nfs: true, mount_options: ['nolock,vers=3,udp']
-		# Changed default vagrant RSync arguments to exclude the --delete option. 
-		config.vm.synced_folder host_folder.to_s, guest_folder.to_s, type: "rsync", rsync__args: ["--verbose", "--archive", "-z", "--copy-links"]
+        # Changed default vagrant RSync arguments to exclude the --delete option. 
+        config.vm.synced_folder host_folder.to_s, guest_folder.to_s, type: "rsync", rsync__args: ["--verbose", "--archive", "-z", "--copy-links"]
       end
     
       if $share_home
@@ -118,13 +118,13 @@ Vagrant.configure("2") do |config|
         config.vm.provision :shell, :inline => "mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/", :privileged => true
       end
 
-	  # Docker images to be pulled
-	  config.vm.provision "docker" do |d|
+      # Docker images to be pulled
+      config.vm.provision "docker" do |d|
         $docker_pull_images.each do |(image_name)|
           d.pull_images "#{image_name}" 
         end
       end
-	  
+      
       # Docker images to be build
       config.vm.provision "docker" do |d|
         $docker_buildable_images.each do |(image_name, build_folder)|

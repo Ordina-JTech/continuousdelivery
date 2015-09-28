@@ -23,6 +23,7 @@ After Vagrant has finished, Jenkins needs some time to startup...
 
 ### Port numbers and default username's and password
 - <http://localhost:8080> Jenkins -->  none / none
+- <http://localhost:9000> Sonar -->  none / none
 - <http://localhost:8081> Nexus --> admin / admin123
 - <http://localhost:8888/sportsquest-web-1.0-b1> --> SportsQuest demo app on Tomcat
 
@@ -46,4 +47,4 @@ Or directly inside the CoreOS machine:
 
 
 ## Jenkins info
-Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume paramter that makes the Docker socket available within the Jenkins container.
+Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume parameter that makes the Docker socket available within the Jenkins container.
