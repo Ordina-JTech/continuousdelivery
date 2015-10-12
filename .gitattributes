@@ -8,3 +8,5 @@
 *.jpg binary
 *.jar binary
 *.jpi binary
+*.svg binary
+*.gliffy binary
