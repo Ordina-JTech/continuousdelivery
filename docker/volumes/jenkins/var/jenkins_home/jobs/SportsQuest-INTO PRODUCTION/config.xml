@@ -28,7 +28,7 @@
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveImageCommand">
         <imageName>ordina-cd/sportsquest:production</imageName>
         <imageId></imageId>
-        <ignoreIfNotFound>false</ignoreIfNotFound>
+        <ignoreIfNotFound>true</ignoreIfNotFound>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
     <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">

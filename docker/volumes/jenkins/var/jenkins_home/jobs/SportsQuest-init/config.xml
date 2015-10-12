@@ -32,7 +32,6 @@ To re-enable the tagging: Add a post build step with the Git Publisher plugin. A
         <name>jtech-builduser</name>
         <email>jtech-builduser@gmail.com</email>
       </hudson.plugins.git.extensions.impl.UserIdentity>
-      <hudson.plugins.git.extensions.impl.PerBuildTag/>
     </extensions>
   </scm>
   <canRoam>true</canRoam>
@@ -42,6 +41,30 @@ To re-enable the tagging: Add a post build step with the Git Publisher plugin. A
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+      <description></description>
+      <switches>-PBUILD_NUMBER=${BUILD_NUMBER}</switches>
+      <tasks>setProjectVersion</tasks>
+      <rootBuildScriptDir>${workspace}</rootBuildScriptDir>
+      <buildFile></buildFile>
+      <gradleName>(Default)</gradleName>
+      <useWrapper>true</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
+    </hudson.plugins.gradle.Gradle>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.24">
+      <description></description>
+      <switches></switches>
+      <tasks>setTagWithVersion</tasks>
+      <rootBuildScriptDir>${workspace}</rootBuildScriptDir>
+      <buildFile></buildFile>
+      <gradleName>(Default)</gradleName>
+      <useWrapper>true</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
+    </hudson.plugins.gradle.Gradle>
     <hudson.tasks.Shell>
       <command>git tag</command>
     </hudson.tasks.Shell>
