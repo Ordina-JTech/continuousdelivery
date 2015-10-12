@@ -29,10 +29,6 @@ After Vagrant has finished, Jenkins needs some time to startup...
 - <http://localhost:8081> Nexus --> admin / admin123
 - <http://localhost:8888/sportsquest> --> SportsQuest demo app on Tomcat
 
-### Overview
-
-![overview plaat](./blob/master/cd_overview.svg)
-
 ### Login into the running CoreOS machine
 	vagrant ssh
 Now you can execute Docker commands. Like show all running containers:
@@ -50,6 +46,10 @@ Or directly inside the CoreOS machine:
 	vagrant ssh
 	docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
 	docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
+
+## Overview
+
+![overview plaat](https://cdn.rawgit.com/J-Technologies/continuousdelivery/master/cd_overview.svg)
 
 ## Jenkins info
 Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume parameter that makes the Docker socket available within the Jenkins container.
