@@ -51,5 +51,7 @@ Or directly inside the CoreOS machine:
 
 ![overview plaat](https://cdn.rawgit.com/J-Technologies/continuousdelivery/master/cd_overview.svg)
 
+"Source" van bovenstaand plaatje is `cd_overview.gliffy`.
+
 ## Jenkins info
 Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume parameter that makes the Docker socket available within the Jenkins container.
