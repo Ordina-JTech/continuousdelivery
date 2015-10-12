@@ -13,7 +13,7 @@ if File.exists?('user-data') && ARGV[0].eql?('up')
   data['coreos']['etcd']['discovery'] = token
  
   yaml = YAML.dump(data)
-  File.open('user-data', 'w') { |file| file.write("#cloud-config\n\n#{yaml}") }
+  File.open('user-data.tmp', 'w') { |file| file.write("#cloud-config\n\n#{yaml}") }
 end
 
 
