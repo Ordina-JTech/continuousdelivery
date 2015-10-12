@@ -31,7 +31,7 @@ After Vagrant has finished, Jenkins needs some time to startup...
 
 ### Overview
 
-![overview plaat](cd_overview.svg?raw=true)
+![overview plaat](./blob/master/cd_overview.svg)
 
 ### Login into the running CoreOS machine
 	vagrant ssh
