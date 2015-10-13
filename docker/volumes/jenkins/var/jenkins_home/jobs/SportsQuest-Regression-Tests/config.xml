@@ -15,17 +15,68 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
+        <image>selenium/hub</image>
+        <command></command>
+        <hostName></hostName>
+        <containerName>selenium-hub-$PIPELINE_ID</containerName>
+        <envVars></envVars>
+        <links></links>
+        <exposedPorts></exposedPorts>
+        <cpuShares></cpuShares>
+        <memoryLimit></memoryLimit>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StartCommand">
+        <containerIds>selenium-hub-$PIPELINE_ID</containerIds>
+        <publishAllPorts>false</publishAllPorts>
+        <portBindings></portBindings>
+        <waitPorts>selenium-hub-$PIPELINE_ID 4444</waitPorts>
+        <links></links>
+        <bindMounts></bindMounts>
+        <privileged>false</privileged>
+        <containerIdsLogging></containerIdsLogging>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
+        <image>selenium/node-chrome</image>
+        <command></command>
+        <hostName></hostName>
+        <containerName>selenium-chrome-$PIPELINE_ID</containerName>
+        <envVars></envVars>
+        <links></links>
+        <exposedPorts></exposedPorts>
+        <cpuShares></cpuShares>
+        <memoryLimit></memoryLimit>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StartCommand">
+        <containerIds>selenium-chrome-$PIPELINE_ID</containerIds>
+        <publishAllPorts>false</publishAllPorts>
+        <portBindings></portBindings>
+        <waitPorts></waitPorts>
+        <links>selenium-hub-$PIPELINE_ID:hub,sportsquest-$PIPELINE_ID:web</links>
+        <bindMounts></bindMounts>
+        <privileged>false</privileged>
+        <containerIdsLogging></containerIdsLogging>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
     <hudson.tasks.Shell>
-      <command>chmod 777 $WORKSPACE/src/main/test/e2e/</command>
+      <command># Giving selenium node a chance to come online
+sleep 5</command>
     </hudson.tasks.Shell>
     <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
-        <image>caltha/protractor</image>
+        <image>jtechnologies/continuousdelivery-protractor</image>
         <command></command>
         <hostName></hostName>
         <containerName>protractor-$PIPELINE_ID</containerName>
         <envVars></envVars>
-        <links></links>
+        <links>selenium-hub-$PIPELINE_ID:hub</links>
         <exposedPorts></exposedPorts>
         <cpuShares></cpuShares>
         <memoryLimit></memoryLimit>
@@ -37,10 +88,47 @@
         <publishAllPorts>false</publishAllPorts>
         <portBindings></portBindings>
         <waitPorts></waitPorts>
-        <links>sportsquest-$PIPELINE_ID:sportsquest</links>
-        <bindMounts>/home/core/docker/volumes/jenkins/$WORKSPACE/src/main/test/e2e/:/project</bindMounts>
+        <links></links>
+        <bindMounts>/home/core/docker/volumes/jenkins/$WORKSPACE/src/main/test/e2e/:/code</bindMounts>
         <privileged>false</privileged>
-        <containerIdsLogging></containerIdsLogging>
+        <containerIdsLogging>protractor-$PIPELINE_ID</containerIdsLogging>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <hudson.tasks.Shell>
+      <command>curl -sX GET http://10.1.42.1:2375/containers/protractor-$PIPELINE_ID/logs?stderr=1\&amp;stdout=1\&amp;follow=1
+
+
+</command>
+    </hudson.tasks.Shell>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveCommand">
+        <containerIds>protractor-$PIPELINE_ID</containerIds>
+        <ignoreIfNotFound>false</ignoreIfNotFound>
+        <removeVolumes>false</removeVolumes>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StopCommand">
+        <containerIds>selenium-chrome-$PIPELINE_ID</containerIds>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveCommand">
+        <containerIds>selenium-chrome-$PIPELINE_ID</containerIds>
+        <ignoreIfNotFound>false</ignoreIfNotFound>
+        <removeVolumes>false</removeVolumes>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StopCommand">
+        <containerIds>selenium-hub-$PIPELINE_ID</containerIds>
+      </dockerCmd>
+    </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+      <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveCommand">
+        <containerIds>selenium-hub-$PIPELINE_ID</containerIds>
+        <ignoreIfNotFound>false</ignoreIfNotFound>
+        <removeVolumes>false</removeVolumes>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
   </builders>

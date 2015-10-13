@@ -70,8 +70,10 @@ $docker_pull_images = [
     'sonatype/nexus:2.11.3-01',
     'tomcat:jre8',
     'sonarqube:5.1.1',
-    'caltha/protractor:latest',
-    'jtechnologies/continuousdelivery-jenkins:latest'
+    'jtechnologies/continuousdelivery-jenkins:latest',
+    'selenium/hub:latest',
+    'selenium/node-chrome:latest',
+    'jtechnologies/continuousdelivery-protractor'
 ]
 
 # Docker images to build
