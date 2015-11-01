@@ -27,7 +27,8 @@ After Vagrant has finished, Jenkins needs some time to startup...
 - <http://localhost:8080> Jenkins -->  none / none
 - <http://localhost:9000> Sonar -->  none / none
 - <http://localhost:8081> Nexus --> admin / admin123
-- <http://localhost:8888/sportsquest> --> SportsQuest demo app on Tomcat
+- <http://localhost:8888/sportsquest> --> SportsQuest demo app on Tomcat (Test)
+- <http://localhost:9999/sportsquest> --> SportsQuest demo app on Tomcat (Production)
 
 ### Login into the running CoreOS machine
 	vagrant ssh
