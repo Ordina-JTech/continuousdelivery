@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>Create Docker image for SportsQuest</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
-    <parentJobName>SportsQuest-CI</parentJobName>
+    <parentJobName>SportsQ-CI</parentJobName>
     <criteria>Any</criteria>
   </scm>
   <canRoam>true</canRoam>
@@ -33,7 +33,7 @@
               <properties>PIPELINE_ID=$PIPELINE_ID</properties>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
-          <projects>SportsQuest-Regression-Tests, </projects>
+          <projects>SportsQ-regression-tests, </projects>
           <condition>SUCCESS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
         </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>

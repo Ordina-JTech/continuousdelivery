@@ -5,7 +5,7 @@
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
-    <parentJobName>SportsQuest-CI</parentJobName>
+    <parentJobName>SportsQ-CI</parentJobName>
     <criteria>Successful</criteria>
   </scm>
   <canRoam>true</canRoam>
@@ -178,7 +178,7 @@ sleep 5</command>
     </hudson.plugins.textfinder.TextFinderPublisher>
     <au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger plugin="build-pipeline-plugin@1.4.7">
       <configs/>
-      <downstreamProjectNames>SportsQuest-INTO PRODUCTION</downstreamProjectNames>
+      <downstreamProjectNames>SportsQ-into-production</downstreamProjectNames>
     </au.com.centrumsystems.hudson.plugin.buildpipeline.trigger.BuildPipelineTrigger>
   </publishers>
   <buildWrappers>

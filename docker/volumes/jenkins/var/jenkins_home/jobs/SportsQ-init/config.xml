@@ -84,7 +84,7 @@ To re-enable the tagging: Add a post build step with the Git Publisher plugin. A
               <properties>PIPELINE_ID=$BUILD_NUMBER</properties>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
-          <projects>SportsQuest-CI</projects>
+          <projects>SportsQ-CI</projects>
           <condition>SUCCESS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
         </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>

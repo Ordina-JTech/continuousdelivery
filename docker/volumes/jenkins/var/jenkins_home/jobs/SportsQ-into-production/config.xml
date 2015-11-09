@@ -5,7 +5,7 @@
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
-    <parentJobName>SportsQuest-CI</parentJobName>
+    <parentJobName>SportsQ-CI</parentJobName>
     <criteria>Successful</criteria>
   </scm>
   <canRoam>true</canRoam>

@@ -5,7 +5,7 @@
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.cloneworkspace.CloneWorkspaceSCM" plugin="clone-workspace-scm@0.6">
-    <parentJobName>SportsQuest-init</parentJobName>
+    <parentJobName>SportsQ-init</parentJobName>
     <criteria>Successful</criteria>
   </scm>
   <canRoam>true</canRoam>
@@ -47,7 +47,7 @@ echo PIPELINE_ID : $PIPELINE_ID</command>
               <properties>PIPELINE_ID=$PIPELINE_ID</properties>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
-          <projects>SportsQuest-Docker image, SportsQuest-SonarQube, deploy2Nexus, </projects>
+          <projects>SportsQ-docker-image,SportsQ-sonarqube,SportsQ-deploy2nexus, </projects>
           <condition>SUCCESS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
         </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
