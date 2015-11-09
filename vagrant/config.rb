@@ -71,9 +71,9 @@ $docker_pull_images = [
     'tomcat:jre8',
     'sonarqube:5.1.1',
     'jtechnologies/continuousdelivery-jenkins:latest',
-    'selenium/hub:latest',
-    'selenium/node-chrome:latest',
-    'jtechnologies/continuousdelivery-protractor'
+    'selenium/hub:2.48.2',
+    'selenium/node-chrome:2.48.2',
+    'jtechnologies/continuousdelivery-protractor:latest'
 ]
 
 # Docker images to build
