@@ -63,7 +63,7 @@ $share_home=false
 # $shared_folders = {'/path/on/host' => '/path/on/guest', '/home/foo/app' => '/app'}
 # or, to map host folders to guest folders of the same name,
 # $shared_folders = Hash[*['/home/foo/app1', '/home/foo/app2'].map{|d| [d, d]}.flatten]
-$shared_folders = {'../docker' => '/home/core/docker'}
+$shared_folders = {'../docker' => '/home/core/docker', '../scripts' => '/home/core/scripts'}
 
 # Docker images to pull (Makes pulling occur during provisioning rather then first service start (which is invisible for the user).
 $docker_pull_images = [
