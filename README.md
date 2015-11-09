@@ -43,7 +43,7 @@ Now you can execute Docker commands. Like show all running containers:
 	
 	docker ps
 
-#### Update after Docker image update (on the dockerhub)
+#### Update after Docker image update
 ##### By using Vagrant:
 
 	vagrant reload --provision
