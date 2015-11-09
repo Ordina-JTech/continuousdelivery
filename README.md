@@ -24,11 +24,14 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker containers th
 After Vagrant has finished, Jenkins needs some time to startup...
 
 ### Port numbers and default username's and password
-- <http://localhost:8080> Jenkins -->  none / none
-- <http://localhost:9000> Sonar -->  none / none
-- <http://localhost:8081> Nexus --> admin / admin123
-- <http://localhost:8888/sportsquest> --> SportsQuest demo app on Tomcat (Test)
-- <http://localhost:9999/sportsquest> --> SportsQuest demo app on Tomcat (Production)
+
+| App | URL | User | Password |
+| --- | --- | ---- | -------- |
+| Jenkins | <http://localhost:8080> |      |      |
+| Sonar   | <http://localhost:9000> |      |      |
+| Nexus   | <http://localhost:8081> | admin | admin123 |
+| SportsQuest demo app on Tomcat (Test) | <http://localhost:8888/sportsquest> |    |   |
+| SportsQuest demo app on Tomcat (Production) | <http://localhost:9999/sportsquest> |    |    |
 
 ### Login into the running CoreOS machine
 	vagrant ssh
@@ -50,9 +53,9 @@ Or directly inside the CoreOS machine:
 
 ## Overview
 
-![overview plaat](https://cdn.rawgit.com/J-Technologies/continuousdelivery/master/cd_overview.svg)
+![overview image](https://cdn.rawgit.com/J-Technologies/continuousdelivery/master/cd_overview.svg)
 
-"Source" van bovenstaand plaatje is `cd_overview.gliffy`.
+"Source" of the above image is `cd_overview.gliffy`.
 
 ## Jenkins info
 Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume parameter that makes the Docker socket available within the Jenkins container.
