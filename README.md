@@ -63,7 +63,7 @@ Stop the relavant service, pull the new docker image and start the service:
 
 ## Docker container overview
 
-<img src="images/cd_docker_overview.svg" alt="cd-docker-overview" style="max-width:50%"/> 
+![overview image](https://cdn.rawgit.com/J-Technologies/continuousdelivery/master/images/cd_docker_overview.svg)
 
 ## Jenkins info
 Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume parameter that makes the Docker socket available within the Jenkins container.
