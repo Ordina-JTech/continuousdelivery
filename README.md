@@ -64,6 +64,10 @@ Stop the relavant service, pull the new docker image and start the service:
 ## Docker container overview
 
 ![overview image](https://cdn.rawgit.com/J-Technologies/continuousdelivery/master/images/cd_docker_overview.svg)
+Please note:
+* The links specified in the image are Docker links using the --link option (http://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/)
+* The ordina-cd/* images are build locally and only exists within the CoreOS system.
+* Images without a explicit version are implicitly using their latest version
 
 ## Jenkins info
 Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume parameter that makes the Docker socket available within the Jenkins container.
