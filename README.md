@@ -43,17 +43,17 @@ Now you can execute Docker commands. Like show all running containers:
 	
 	docker ps
 
-#### Update after Dockerfile change
-By using Vagrant:
+#### Update after Docker image update (on the dockerhub)
+##### By using Vagrant:
 
-	vagrant reload
-	vagrant provision
+	vagrant reload --provision
 
-Or directly inside the CoreOS machine:
+##### or by using CoreOS:
+Stop the relavant service, pull the new docker image and start the service:
 
-	vagrant ssh
-	docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
-	docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
+	sudo systemctl stop <servicename>
+	docker pull <dockerimage>
+	sudo systemctl start <servicename>
 
 ## Docker container overview
 
