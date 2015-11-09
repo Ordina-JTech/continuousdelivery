@@ -32,7 +32,7 @@ After Vagrant has finished, Jenkins needs some time to startup...
 | App | URL | User | Password |
 | --- | --- | ---- | -------- |
 | Jenkins | <http://localhost:8080> |      |      |
-| Sonar   | <http://localhost:9000> |      |      |
+| Sonar   | <http://localhost:9000> | admin | admin |
 | Nexus   | <http://localhost:8081> | admin | admin123 |
 | SportsQuest demo app on Tomcat (Test) | <http://localhost:8888/sportsquest> |    |   |
 | SportsQuest demo app on Tomcat (Production) | <http://localhost:9999/sportsquest> |    |    |
