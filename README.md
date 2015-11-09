@@ -11,7 +11,7 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker containers th
 
 
 ### Overview of the CD ecosystem
-<img src="images/cd-ecosystem-overview.png" alt="cd-ecosystem-overview" style="width: 300px;"/> 
+<img src="images/cd-ecosystem-overview.png" alt="cd-ecosystem-overview" style="max-width:50%"/> 
 
 ## Getting Started
 
