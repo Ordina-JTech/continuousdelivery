@@ -106,11 +106,6 @@
     <tspan x="66" y="452.865"> </tspan>
     <tspan x="66" y="468.865">  CoreOS</tspan>
   </text>
-  <text font-size="12.7998" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="33" y="453.865">
-    <tspan x="33" y="453.865"> </tspan>
-    <tspan x="33" y="469.865"> </tspan>
-    <tspan x="33" y="485.865">  coreos latest</tspan>
-  </text>
   <g>
     <rect style="fill: #ffa500" x="96.5" y="505.365" width="239.5" height="64"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="96.5" y="505.365" width="239.5" height="64"/>
@@ -345,9 +340,6 @@
   <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:sans-serif;font-style:normal;font-weight:normal" x="699.538" y="706.87">
     <tspan x="699.538" y="706.87">Link</tspan>
   </text>
-  <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:sans-serif;font-style:normal;font-weight:normal" x="205.45" y="172.79">
-    <tspan x="205.45" y="172.79">Link</tspan>
-  </text>
   <g>
     <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="594.651" y1="755.201" x2="593.85" y2="711.199"/>
     <polygon style="fill: #000000" points="598.85,711.108 593.669,701.201 588.851,711.29 "/>
@@ -355,5 +347,10 @@
   </g>
   <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:sans-serif;font-style:normal;font-weight:normal" x="593.151" y="734.701">
     <tspan x="593.151" y="734.701">Link</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="66.6" y="453.99">
+    <tspan x="66.6" y="453.99"> </tspan>
+    <tspan x="66.6" y="469.99"> </tspan>
+    <tspan x="66.6" y="485.99">  coreos latest</tspan>
   </text>
 </svg>
