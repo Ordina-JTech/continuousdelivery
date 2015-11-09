@@ -6,8 +6,12 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker containers th
 - Jenkins
 - Nexus
 - Sonar
-- Protractor
+- Protractor + Selenium
 - Tomcat (Test and Prod)
+
+
+### Overview of the CD ecosystem
+<img src="images/cd-ecosystem-overview.png" alt="cd-ecosystem-overview" style="max-width:50%"/> 
 
 ## Getting Started
 
@@ -51,7 +55,7 @@ Or directly inside the CoreOS machine:
 	docker build --no-cache=true -t ordina-cd/jenkins /home/core/dockerimages/jenkins/
 	docker run --rm --name jenkins -p 8080:8080 -p 50000:50000 --privileged=true ordina-cd/jenkins
 
-## Overview
+## Docker container verview
 
 ![overview image](https://cdn.rawgit.com/J-Technologies/continuousdelivery/master/cd_overview.svg)
 
