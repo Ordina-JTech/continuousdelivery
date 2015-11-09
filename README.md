@@ -70,6 +70,7 @@ Please note:
 * The links specified in the image are Docker links using the --link option (http://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/)
 * The ordina-cd/* images are build locally and only exists within the CoreOS system.
 * Images without a explicit version are implicitly using their latest version
+* The Sportquest container on port 8888 is only online during the regression tests
 
 ## Jenkins info
 Jenkins contains the docker-build-step plugin and is configured to communicate with the docker host running at the CoreOS machine. The Jenkins container is started with a volume parameter that makes the Docker socket available within the Jenkins container.
