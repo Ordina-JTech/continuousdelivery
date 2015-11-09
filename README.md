@@ -42,6 +42,12 @@ After Vagrant has finished, Jenkins needs some time to startup...
 Now you can execute Docker commands. Like show all running containers:
 	
 	docker ps
+	
+Or update after Jenkins Docker image changes:
+    sudo ./scripts/reload-jenkins.sh
+
+Or copy the Jenkins configuration files over to the shared tmp folder.
+    ./scripts/copy-jenkins-config.sh
 
 #### Update after Docker image update
 ##### By using Vagrant:
