@@ -49,7 +49,7 @@
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
     <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
-        <image>selenium/hub</image>
+        <image>selenium/hub:2.48.2</image>
         <command></command>
         <hostName></hostName>
         <containerName>selenium-hub-$PIPELINE_ID</containerName>
@@ -74,7 +74,7 @@
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
     <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
-        <image>selenium/node-chrome</image>
+        <image>selenium/node-chrome:2.48.2</image>
         <command></command>
         <hostName></hostName>
         <containerName>selenium-chrome-$PIPELINE_ID</containerName>
