@@ -127,7 +127,7 @@ sleep 5</command>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
     <hudson.tasks.Shell>
-      <command>curl -sX GET http://10.1.42.1:2375/containers/protractor-$PIPELINE_ID/logs?stderr=1\&amp;stdout=1\&amp;follow=1
+      <command>curl -sX GET http://172.18.42.1:2375/containers/protractor-$PIPELINE_ID/logs?stderr=1\&amp;stdout=1\&amp;follow=1
 
 
 </command>
