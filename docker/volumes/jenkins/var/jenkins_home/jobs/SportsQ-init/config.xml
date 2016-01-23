@@ -65,6 +65,13 @@ To re-enable the tagging: Add a post build step with the Git Publisher plugin. A
       <fromRootBuildScriptDir>true</fromRootBuildScriptDir>
       <useWorkspaceAsHome>false</useWorkspaceAsHome>
     </hudson.plugins.gradle.Gradle>
+    <org.jenkinsci.plugins.buildnameupdater.BuildNameUpdater plugin="build-name-setter@1.5.1">
+      <buildName>version.txt</buildName>
+      <macroTemplate>#${BUILD_NUMBER}</macroTemplate>
+      <fromFile>true</fromFile>
+      <fromMacro>false</fromMacro>
+      <macroFirst>false</macroFirst>
+    </org.jenkinsci.plugins.buildnameupdater.BuildNameUpdater>
     <hudson.tasks.Shell>
       <command>git tag</command>
     </hudson.tasks.Shell>
@@ -91,9 +98,5 @@ To re-enable the tagging: Add a post build step with the Git Publisher plugin. A
       </configs>
     </hudson.plugins.parameterizedtrigger.BuildTrigger>
   </publishers>
-  <buildWrappers>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.3">
-      <template>${FILE,path=&quot;version.txt&quot;}</template>
-    </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
-  </buildWrappers>
+  <buildWrappers/>
 </project>

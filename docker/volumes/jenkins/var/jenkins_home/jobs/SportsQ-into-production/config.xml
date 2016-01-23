@@ -15,31 +15,40 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.buildnameupdater.BuildNameUpdater plugin="build-name-setter@1.5.1">
+      <buildName>version.txt</buildName>
+      <macroTemplate>#${BUILD_NUMBER}</macroTemplate>
+      <fromFile>true</fromFile>
+      <fromMacro>false</fromMacro>
+      <macroFirst>false</macroFirst>
+    </org.jenkinsci.plugins.buildnameupdater.BuildNameUpdater>
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.33">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StopByImageIdCommand">
         <imageId>ordina-cd/sportsquest:production</imageId>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.33">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveCommand">
         <containerIds>sportsquest-production</containerIds>
         <ignoreIfNotFound>true</ignoreIfNotFound>
         <removeVolumes>false</removeVolumes>
+        <force>false</force>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.33">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.RemoveImageCommand">
         <imageName>ordina-cd/sportsquest:production</imageName>
         <imageId></imageId>
         <ignoreIfNotFound>true</ignoreIfNotFound>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.33">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.TagImageCommand">
         <image>ordina-cd/sportsquest:$PIPELINE_ID</image>
         <repository>ordina-cd/sportsquest</repository>
         <tag>production</tag>
         <ignoreIfNotFound>true</ignoreIfNotFound>
+        <withForce>false</withForce>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
     <hudson.tasks.Shell>
@@ -49,7 +58,7 @@
 # Falling back to TCP, using 10.1.42.1 as a host. This is the Docker0 interface on the CoreOS machine.
 #curl -X POST http://10.1.42.1:2375/images/ordina-cd/sportsquest:$PIPELINE_ID/tag?repo=ordina-cd/sportsquest&amp;tag=production&amp;force=1</command>
     </hudson.tasks.Shell>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.33">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.CreateContainerCommand">
         <image>ordina-cd/sportsquest:production</image>
         <command></command>
@@ -62,7 +71,7 @@
         <memoryLimit></memoryLimit>
       </dockerCmd>
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
-    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.31">
+    <org.jenkinsci.plugins.dockerbuildstep.DockerBuilder plugin="docker-build-step@1.33">
       <dockerCmd class="org.jenkinsci.plugins.dockerbuildstep.cmd.StartCommand">
         <containerIds>sportsquest-production</containerIds>
         <publishAllPorts>false</publishAllPorts>
@@ -76,9 +85,5 @@
     </org.jenkinsci.plugins.dockerbuildstep.DockerBuilder>
   </builders>
   <publishers/>
-  <buildWrappers>
-    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.3">
-      <template>${FILE,path=&quot;version.txt&quot;}</template>
-    </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
-  </buildWrappers>
+  <buildWrappers/>
 </project>
