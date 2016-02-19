@@ -20,6 +20,11 @@ It consist of an ecosystem of a CoreOS cluster and a set of Docker containers th
 1. Vagrant installed, version >= 1.8.1
 1. Windows Only: Cygwin with rsync binary (selectable in the setup)
 
+### Issues and workarounds ###
+1. rsync file or folder not found: ```ln -s /cygdrive/c /c; ln -s /cygdrive/d /d```
+2. mm_receive_fd: no message header error: <https://github.com/mitchellh/vagrant/issues/6702>
+
+
 ### Start the CoreOS Cluster (single node)
 1. Clone the Git repo
 1. change directory to vagrant
